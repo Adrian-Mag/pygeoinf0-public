@@ -1,0 +1,2812 @@
+{
+ "format": 1,
+ "length_scale": 0.2,
+ "domains": [
+  {
+   "key": "Interval",
+   "label": "Interval",
+   "dim": 1
+  },
+  {
+   "key": "Segment",
+   "label": "Segment (2D)",
+   "dim": 1
+  },
+  {
+   "key": "Polyline",
+   "label": "Polyline (2D)",
+   "dim": 1
+  },
+  {
+   "key": "Arc",
+   "label": "Great-circle arc",
+   "dim": 1
+  },
+  {
+   "key": "Curve",
+   "label": "Curve (2D)",
+   "dim": 1
+  },
+  {
+   "key": "Circle",
+   "label": "Circle",
+   "dim": 1
+  },
+  {
+   "key": "Rectangle",
+   "label": "Rectangle",
+   "dim": 2
+  },
+  {
+   "key": "Disk",
+   "label": "Disk",
+   "dim": 2
+  },
+  {
+   "key": "Patch",
+   "label": "Flat patch (3D)",
+   "dim": 2
+  },
+  {
+   "key": "Sphere",
+   "label": "Sphere",
+   "dim": 2
+  },
+  {
+   "key": "Torus2",
+   "label": "Torus 2D",
+   "dim": 2
+  },
+  {
+   "key": "Box",
+   "label": "Box",
+   "dim": 3
+  },
+  {
+   "key": "Cylinder",
+   "label": "Cylinder",
+   "dim": 3
+  },
+  {
+   "key": "Ball",
+   "label": "Ball",
+   "dim": 3
+  },
+  {
+   "key": "Shell",
+   "label": "Shell",
+   "dim": 3
+  },
+  {
+   "key": "Torus3",
+   "label": "Torus 3D",
+   "dim": 3
+  },
+  {
+   "key": "Layered",
+   "label": "Layered ball",
+   "dim": 3
+  }
+ ],
+ "spaces": [
+  {
+   "key": "L2",
+   "label": "L2"
+  },
+  {
+   "key": "Lp",
+   "label": "Lp"
+  },
+  {
+   "key": "C",
+   "label": "C"
+  },
+  {
+   "key": "Sobolev",
+   "label": "Sobolev(D)"
+  },
+  {
+   "key": "IntrH1",
+   "label": "Intr H1"
+  },
+  {
+   "key": "IntrH2",
+   "label": "Intr H2"
+  },
+  {
+   "key": "SpecN",
+   "label": "Spec N"
+  },
+  {
+   "key": "SpecD",
+   "label": "Spec D"
+  },
+  {
+   "key": "SpecMixed",
+   "label": "Spec Mixed"
+  },
+  {
+   "key": "SpecRobin",
+   "label": "Spec Robin"
+  },
+  {
+   "key": "ComplexL2",
+   "label": "Complex L2"
+  }
+ ],
+ "cells": {
+  "Interval": {
+   "L2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "legendre",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.L2(D)"
+   },
+   "Lp": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "legendre",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Lp(D, 3)"
+   },
+   "C": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "legendre",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Continuous(D)"
+   },
+   "Sobolev": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "legendre",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Sobolev(D, 1, length_scale=0.2)"
+   },
+   "IntrH1": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "legendre",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.SobolevForm(D, 1, length_scale=0.2).space()"
+   },
+   "IntrH2": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "legendre",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.SobolevForm(D, 2, length_scale=0.2).space()"
+   },
+   "SpecN": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "legendre",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2).operator(), 1)"
+   },
+   "SpecD": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "legendre",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=\"all\").operator(), 1)"
+   },
+   "SpecMixed": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "legendre",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=('left',)).operator(), 1)"
+   },
+   "SpecRobin": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "legendre",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, robin=1.0).operator(), 1)"
+   },
+   "ComplexL2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": null,
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Complexified(pg.L2(D))"
+   }
+  },
+  "Segment": {
+   "L2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Segment((0, 0), (1, 0.5))",
+    "space_code": "pg.L2(D)"
+   },
+   "Lp": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Segment((0, 0), (1, 0.5))",
+    "space_code": "pg.Lp(D, 3)"
+   },
+   "C": {
+    "status": "refused",
+    "reason": "C(K) is implemented on closed bounded intervals, and Segment((0, 0), (1, 0.5)) is not one",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Segment((0, 0), (1, 0.5))",
+    "space_code": "pg.Continuous(D)"
+   },
+   "Sobolev": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "tensor",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Segment((0, 0), (1, 0.5))",
+    "space_code": "pg.Sobolev(D, 1, length_scale=0.2)"
+   },
+   "IntrH1": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (natural (Neumann) at boundary) on Segment((0, 0), (1, 0.5)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Segment((0, 0), (1, 0.5))",
+    "space_code": "pg.SobolevForm(D, 1, length_scale=0.2).space()"
+   },
+   "IntrH2": {
+    "status": "refused",
+    "reason": "intrinsic a_2 on Segment((0, 0), (1, 0.5)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Segment((0, 0), (1, 0.5))",
+    "space_code": "pg.SobolevForm(D, 2, length_scale=0.2).space()"
+   },
+   "SpecN": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (natural (Neumann) at boundary) on Segment((0, 0), (1, 0.5)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Segment((0, 0), (1, 0.5))",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2).operator(), 1)"
+   },
+   "SpecD": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (Dirichlet at boundary) on Segment((0, 0), (1, 0.5)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Segment((0, 0), (1, 0.5))",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=\"all\").operator(), 1)"
+   },
+   "SpecMixed": {
+    "status": "n/a",
+    "reason": "a mixed condition needs two boundary parts; this domain has 1 (boundary)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Segment((0, 0), (1, 0.5))",
+    "space_code": null
+   },
+   "SpecRobin": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (Robin 1 at boundary) on Segment((0, 0), (1, 0.5)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Segment((0, 0), (1, 0.5))",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, robin=1.0).operator(), 1)"
+   },
+   "ComplexL2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": null,
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Segment((0, 0), (1, 0.5))",
+    "space_code": "pg.Complexified(pg.L2(D))"
+   }
+  },
+  "Polyline": {
+   "L2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Polyline([[0, 0], [1, 0], [1, 1]])",
+    "space_code": "pg.L2(D)"
+   },
+   "Lp": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Polyline([[0, 0], [1, 0], [1, 1]])",
+    "space_code": "pg.Lp(D, 3)"
+   },
+   "C": {
+    "status": "refused",
+    "reason": "C(K) is implemented on closed bounded intervals, and Polyline(3 points, length 2) is not one",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Polyline([[0, 0], [1, 0], [1, 1]])",
+    "space_code": "pg.Continuous(D)"
+   },
+   "Sobolev": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "tensor",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Polyline([[0, 0], [1, 0], [1, 1]])",
+    "space_code": "pg.Sobolev(D, 1, length_scale=0.2)"
+   },
+   "IntrH1": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (natural (Neumann) at boundary) on Polyline(3 points, length 2) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Polyline([[0, 0], [1, 0], [1, 1]])",
+    "space_code": "pg.SobolevForm(D, 1, length_scale=0.2).space()"
+   },
+   "IntrH2": {
+    "status": "refused",
+    "reason": "intrinsic a_2 on Polyline(3 points, length 2) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Polyline([[0, 0], [1, 0], [1, 1]])",
+    "space_code": "pg.SobolevForm(D, 2, length_scale=0.2).space()"
+   },
+   "SpecN": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (natural (Neumann) at boundary) on Polyline(3 points, length 2) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Polyline([[0, 0], [1, 0], [1, 1]])",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2).operator(), 1)"
+   },
+   "SpecD": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (Dirichlet at boundary) on Polyline(3 points, length 2) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Polyline([[0, 0], [1, 0], [1, 1]])",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=\"all\").operator(), 1)"
+   },
+   "SpecMixed": {
+    "status": "n/a",
+    "reason": "a mixed condition needs two boundary parts; this domain has 1 (boundary)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Polyline([[0, 0], [1, 0], [1, 1]])",
+    "space_code": null
+   },
+   "SpecRobin": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (Robin 1 at boundary) on Polyline(3 points, length 2) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Polyline([[0, 0], [1, 0], [1, 1]])",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, robin=1.0).operator(), 1)"
+   },
+   "ComplexL2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": null,
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Polyline([[0, 0], [1, 0], [1, 1]])",
+    "space_code": "pg.Complexified(pg.L2(D))"
+   }
+  },
+  "Arc": {
+   "L2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Arc(pg.Sphere(1.0), (1, 0, 0), (0, 1, 0))",
+    "space_code": "pg.L2(D)"
+   },
+   "Lp": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Arc(pg.Sphere(1.0), (1, 0, 0), (0, 1, 0))",
+    "space_code": "pg.Lp(D, 3)"
+   },
+   "C": {
+    "status": "refused",
+    "reason": "C(K) is implemented on closed bounded intervals, and Arc on Sphere(radius=1, centre=(0, 0, 0)), 90 degrees is not one",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Arc(pg.Sphere(1.0), (1, 0, 0), (0, 1, 0))",
+    "space_code": "pg.Continuous(D)"
+   },
+   "Sobolev": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "tensor",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Arc(pg.Sphere(1.0), (1, 0, 0), (0, 1, 0))",
+    "space_code": "pg.Sobolev(D, 1, length_scale=0.2)"
+   },
+   "IntrH1": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (natural (Neumann) at boundary) on Arc on Sphere(radius=1, centre=(0, 0, 0)), 90 degrees has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Arc(pg.Sphere(1.0), (1, 0, 0), (0, 1, 0))",
+    "space_code": "pg.SobolevForm(D, 1, length_scale=0.2).space()"
+   },
+   "IntrH2": {
+    "status": "refused",
+    "reason": "intrinsic a_2 on Arc on Sphere(radius=1, centre=(0, 0, 0)), 90 degrees has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Arc(pg.Sphere(1.0), (1, 0, 0), (0, 1, 0))",
+    "space_code": "pg.SobolevForm(D, 2, length_scale=0.2).space()"
+   },
+   "SpecN": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (natural (Neumann) at boundary) on Arc on Sphere(radius=1, centre=(0, 0, 0)), 90 degrees has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Arc(pg.Sphere(1.0), (1, 0, 0), (0, 1, 0))",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2).operator(), 1)"
+   },
+   "SpecD": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (Dirichlet at boundary) on Arc on Sphere(radius=1, centre=(0, 0, 0)), 90 degrees has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Arc(pg.Sphere(1.0), (1, 0, 0), (0, 1, 0))",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=\"all\").operator(), 1)"
+   },
+   "SpecMixed": {
+    "status": "n/a",
+    "reason": "a mixed condition needs two boundary parts; this domain has 1 (boundary)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Arc(pg.Sphere(1.0), (1, 0, 0), (0, 1, 0))",
+    "space_code": null
+   },
+   "SpecRobin": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (Robin 1 at boundary) on Arc on Sphere(radius=1, centre=(0, 0, 0)), 90 degrees has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Arc(pg.Sphere(1.0), (1, 0, 0), (0, 1, 0))",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, robin=1.0).operator(), 1)"
+   },
+   "ComplexL2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": null,
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Arc(pg.Sphere(1.0), (1, 0, 0), (0, 1, 0))",
+    "space_code": "pg.Complexified(pg.L2(D))"
+   }
+  },
+  "Curve": {
+   "L2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Curve(lambda t: (t, t ** 2), 0, 1)",
+    "space_code": "pg.L2(D)"
+   },
+   "Lp": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Curve(lambda t: (t, t ** 2), 0, 1)",
+    "space_code": "pg.Lp(D, 3)"
+   },
+   "C": {
+    "status": "refused",
+    "reason": "C(K) is implemented on closed bounded intervals, and Curve(γ on [0, 1] in R^2, length 1.47894) is not one",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Curve(lambda t: (t, t ** 2), 0, 1)",
+    "space_code": "pg.Continuous(D)"
+   },
+   "Sobolev": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "tensor",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Curve(lambda t: (t, t ** 2), 0, 1)",
+    "space_code": "pg.Sobolev(D, 1, length_scale=0.2)"
+   },
+   "IntrH1": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (natural (Neumann) at boundary) on Curve(γ on [0, 1] in R^2, length 1.47894) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Curve(lambda t: (t, t ** 2), 0, 1)",
+    "space_code": "pg.SobolevForm(D, 1, length_scale=0.2).space()"
+   },
+   "IntrH2": {
+    "status": "refused",
+    "reason": "intrinsic a_2 on Curve(γ on [0, 1] in R^2, length 1.47894) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Curve(lambda t: (t, t ** 2), 0, 1)",
+    "space_code": "pg.SobolevForm(D, 2, length_scale=0.2).space()"
+   },
+   "SpecN": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (natural (Neumann) at boundary) on Curve(γ on [0, 1] in R^2, length 1.47894) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Curve(lambda t: (t, t ** 2), 0, 1)",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2).operator(), 1)"
+   },
+   "SpecD": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (Dirichlet at boundary) on Curve(γ on [0, 1] in R^2, length 1.47894) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Curve(lambda t: (t, t ** 2), 0, 1)",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=\"all\").operator(), 1)"
+   },
+   "SpecMixed": {
+    "status": "n/a",
+    "reason": "a mixed condition needs two boundary parts; this domain has 1 (boundary)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Curve(lambda t: (t, t ** 2), 0, 1)",
+    "space_code": null
+   },
+   "SpecRobin": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (Robin 1 at boundary) on Curve(γ on [0, 1] in R^2, length 1.47894) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Curve(lambda t: (t, t ** 2), 0, 1)",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, robin=1.0).operator(), 1)"
+   },
+   "ComplexL2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": null,
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Curve(lambda t: (t, t ** 2), 0, 1)",
+    "space_code": "pg.Complexified(pg.L2(D))"
+   }
+  },
+  "Circle": {
+   "L2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Circle(1.0)",
+    "space_code": "pg.L2(D)"
+   },
+   "Lp": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Circle(1.0)",
+    "space_code": "pg.Lp(D, 3)"
+   },
+   "C": {
+    "status": "refused",
+    "reason": "C(K) is implemented on closed bounded intervals, and Circle(radius=1, centre=(0, 0)) is not one",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Circle(1.0)",
+    "space_code": "pg.Continuous(D)"
+   },
+   "Sobolev": {
+    "status": "ok",
+    "reason": null,
+    "definition": "periodic",
+    "realisation": "tensor",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Circle(1.0)",
+    "space_code": "pg.Sobolev(D, 1, length_scale=0.2)"
+   },
+   "IntrH1": {
+    "status": "ok",
+    "reason": null,
+    "definition": "periodic",
+    "realisation": "tensor",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Circle(1.0)",
+    "space_code": "pg.SobolevForm(D, 1, length_scale=0.2).space()"
+   },
+   "IntrH2": {
+    "status": "ok",
+    "reason": null,
+    "definition": "periodic",
+    "realisation": "tensor",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Circle(1.0)",
+    "space_code": "pg.SobolevForm(D, 2, length_scale=0.2).space()"
+   },
+   "SpecN": {
+    "status": "n/a",
+    "reason": "a closed manifold has no boundary: there is no boundary condition to impose (its spectral space is the Sobolev column)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Circle(1.0)",
+    "space_code": null
+   },
+   "SpecD": {
+    "status": "n/a",
+    "reason": "a closed manifold has no boundary: there is no boundary condition to impose (its spectral space is the Sobolev column)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Circle(1.0)",
+    "space_code": null
+   },
+   "SpecMixed": {
+    "status": "n/a",
+    "reason": "a closed manifold has no boundary: there is no boundary condition to impose (its spectral space is the Sobolev column)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Circle(1.0)",
+    "space_code": null
+   },
+   "SpecRobin": {
+    "status": "n/a",
+    "reason": "a closed manifold has no boundary: there is no boundary condition to impose (its spectral space is the Sobolev column)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Circle(1.0)",
+    "space_code": null
+   },
+   "ComplexL2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": null,
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Circle(1.0)",
+    "space_code": "pg.Complexified(pg.L2(D))"
+   }
+  },
+  "Rectangle": {
+   "L2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "local",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.L2(D)"
+   },
+   "Lp": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "local",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Lp(D, 3)"
+   },
+   "C": {
+    "status": "refused",
+    "reason": "C(K) is implemented on closed bounded intervals, and [0, 1] × [0, 1] is not one",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Continuous(D)"
+   },
+   "Sobolev": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "local",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Sobolev(D, 2, length_scale=0.2)"
+   },
+   "IntrH1": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "local",
+    "functional": "ray integral",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "unbounded"
+     },
+     {
+      "functional": "ray integral",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.SobolevForm(D, 1, length_scale=0.2).space()"
+   },
+   "IntrH2": {
+    "status": "refused",
+    "reason": "intrinsic a_2: only the operator 1 - l^2 Delta of an order-1 form is realised by images",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.SobolevForm(D, 2, length_scale=0.2).space()"
+   },
+   "SpecN": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "local",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2).operator(), 2)"
+   },
+   "SpecD": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "local",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=\"all\").operator(), 2)"
+   },
+   "SpecMixed": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "local",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=('x-',)).operator(), 2)"
+   },
+   "SpecRobin": {
+    "status": "refused",
+    "reason": "spectral, A = 1 - l²Δ of a_1 (Robin 1 at x-; Robin 1 at x+; Robin 1 at y-; Robin 1 at y+): images need Neumann or Dirichlet conditions; Robin parts are realised only on intervals with integer orders (finite rank)",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, robin=1.0).operator(), 2)"
+   },
+   "ComplexL2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": null,
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Complexified(pg.L2(D))"
+   }
+  },
+  "Disk": {
+   "L2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Disk(1.0)",
+    "space_code": "pg.L2(D)"
+   },
+   "Lp": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Disk(1.0)",
+    "space_code": "pg.Lp(D, 3)"
+   },
+   "C": {
+    "status": "refused",
+    "reason": "C(K) is implemented on closed bounded intervals, and Disk(radius=1, centre=(0, 0)) is not one",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Disk(1.0)",
+    "space_code": "pg.Continuous(D)"
+   },
+   "Sobolev": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "tensor",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Disk(1.0)",
+    "space_code": "pg.Sobolev(D, 2, length_scale=0.2)"
+   },
+   "IntrH1": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (natural (Neumann) at boundary) on Disk(radius=1, centre=(0, 0)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Disk(1.0)",
+    "space_code": "pg.SobolevForm(D, 1, length_scale=0.2).space()"
+   },
+   "IntrH2": {
+    "status": "refused",
+    "reason": "intrinsic a_2 on Disk(radius=1, centre=(0, 0)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Disk(1.0)",
+    "space_code": "pg.SobolevForm(D, 2, length_scale=0.2).space()"
+   },
+   "SpecN": {
+    "status": "refused",
+    "reason": "spectral, A = 1 - l²Δ of a_1 (natural (Neumann) at boundary) on Disk(radius=1, centre=(0, 0)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Disk(1.0)",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2).operator(), 2)"
+   },
+   "SpecD": {
+    "status": "refused",
+    "reason": "spectral, A = 1 - l²Δ of a_1 (Dirichlet at boundary) on Disk(radius=1, centre=(0, 0)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Disk(1.0)",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=\"all\").operator(), 2)"
+   },
+   "SpecMixed": {
+    "status": "n/a",
+    "reason": "a mixed condition needs two boundary parts; this domain has 1 (boundary)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Disk(1.0)",
+    "space_code": null
+   },
+   "SpecRobin": {
+    "status": "refused",
+    "reason": "spectral, A = 1 - l²Δ of a_1 (Robin 1 at boundary) on Disk(radius=1, centre=(0, 0)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Disk(1.0)",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, robin=1.0).operator(), 2)"
+   },
+   "ComplexL2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": null,
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Disk(1.0)",
+    "space_code": "pg.Complexified(pg.L2(D))"
+   }
+  },
+  "Patch": {
+   "L2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Patch((0, 0, 0), (1, 0, 0), (0, 1, 0))",
+    "space_code": "pg.L2(D)"
+   },
+   "Lp": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Patch((0, 0, 0), (1, 0, 0), (0, 1, 0))",
+    "space_code": "pg.Lp(D, 3)"
+   },
+   "C": {
+    "status": "refused",
+    "reason": "C(K) is implemented on closed bounded intervals, and Patch((0, 0, 0), (1, 0, 0), (0, 1, 0)) is not one",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Patch((0, 0, 0), (1, 0, 0), (0, 1, 0))",
+    "space_code": "pg.Continuous(D)"
+   },
+   "Sobolev": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "tensor",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Patch((0, 0, 0), (1, 0, 0), (0, 1, 0))",
+    "space_code": "pg.Sobolev(D, 2, length_scale=0.2)"
+   },
+   "IntrH1": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (natural (Neumann) at boundary) on Patch((0, 0, 0), (1, 0, 0), (0, 1, 0)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Patch((0, 0, 0), (1, 0, 0), (0, 1, 0))",
+    "space_code": "pg.SobolevForm(D, 1, length_scale=0.2).space()"
+   },
+   "IntrH2": {
+    "status": "refused",
+    "reason": "intrinsic a_2 on Patch((0, 0, 0), (1, 0, 0), (0, 1, 0)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Patch((0, 0, 0), (1, 0, 0), (0, 1, 0))",
+    "space_code": "pg.SobolevForm(D, 2, length_scale=0.2).space()"
+   },
+   "SpecN": {
+    "status": "refused",
+    "reason": "spectral, A = 1 - l²Δ of a_1 (natural (Neumann) at boundary) on Patch((0, 0, 0), (1, 0, 0), (0, 1, 0)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Patch((0, 0, 0), (1, 0, 0), (0, 1, 0))",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2).operator(), 2)"
+   },
+   "SpecD": {
+    "status": "refused",
+    "reason": "spectral, A = 1 - l²Δ of a_1 (Dirichlet at boundary) on Patch((0, 0, 0), (1, 0, 0), (0, 1, 0)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Patch((0, 0, 0), (1, 0, 0), (0, 1, 0))",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=\"all\").operator(), 2)"
+   },
+   "SpecMixed": {
+    "status": "n/a",
+    "reason": "a mixed condition needs two boundary parts; this domain has 1 (boundary)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Patch((0, 0, 0), (1, 0, 0), (0, 1, 0))",
+    "space_code": null
+   },
+   "SpecRobin": {
+    "status": "refused",
+    "reason": "spectral, A = 1 - l²Δ of a_1 (Robin 1 at boundary) on Patch((0, 0, 0), (1, 0, 0), (0, 1, 0)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Patch((0, 0, 0), (1, 0, 0), (0, 1, 0))",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, robin=1.0).operator(), 2)"
+   },
+   "ComplexL2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": null,
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Patch((0, 0, 0), (1, 0, 0), (0, 1, 0))",
+    "space_code": "pg.Complexified(pg.L2(D))"
+   }
+  },
+  "Sphere": {
+   "L2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "harmonics",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Sphere(1.0)",
+    "space_code": "pg.L2(D)"
+   },
+   "Lp": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "harmonics",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Sphere(1.0)",
+    "space_code": "pg.Lp(D, 3)"
+   },
+   "C": {
+    "status": "refused",
+    "reason": "C(K) is implemented on closed bounded intervals, and Sphere(radius=1, centre=(0, 0, 0)) is not one",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Sphere(1.0)",
+    "space_code": "pg.Continuous(D)"
+   },
+   "Sobolev": {
+    "status": "ok",
+    "reason": null,
+    "definition": "spherical",
+    "realisation": "harmonics",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Sphere(1.0)",
+    "space_code": "pg.Sobolev(D, 2, length_scale=0.2)"
+   },
+   "IntrH1": {
+    "status": "ok",
+    "reason": null,
+    "definition": "spherical",
+    "realisation": "harmonics",
+    "functional": "arc integral",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "unbounded"
+     },
+     {
+      "functional": "arc integral",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Sphere(1.0)",
+    "space_code": "pg.SobolevForm(D, 1, length_scale=0.2).space()"
+   },
+   "IntrH2": {
+    "status": "refused",
+    "reason": "on Sphere(radius=1, centre=(0, 0, 0)) the form of order 2 involves the curvature (Bochner: int |Hess u|^2 = int (Delta u)^2 - R^-2 int |grad u|^2 on a sphere of radius R); not offered",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Sphere(1.0)",
+    "space_code": "pg.SobolevForm(D, 2, length_scale=0.2).space()"
+   },
+   "SpecN": {
+    "status": "n/a",
+    "reason": "a closed manifold has no boundary: there is no boundary condition to impose (its spectral space is the Sobolev column)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Sphere(1.0)",
+    "space_code": null
+   },
+   "SpecD": {
+    "status": "n/a",
+    "reason": "a closed manifold has no boundary: there is no boundary condition to impose (its spectral space is the Sobolev column)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Sphere(1.0)",
+    "space_code": null
+   },
+   "SpecMixed": {
+    "status": "n/a",
+    "reason": "a closed manifold has no boundary: there is no boundary condition to impose (its spectral space is the Sobolev column)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Sphere(1.0)",
+    "space_code": null
+   },
+   "SpecRobin": {
+    "status": "n/a",
+    "reason": "a closed manifold has no boundary: there is no boundary condition to impose (its spectral space is the Sobolev column)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Sphere(1.0)",
+    "space_code": null
+   },
+   "ComplexL2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": null,
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Sphere(1.0)",
+    "space_code": "pg.Complexified(pg.L2(D))"
+   }
+  },
+  "Torus2": {
+   "L2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.L2(D)"
+   },
+   "Lp": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Lp(D, 3)"
+   },
+   "C": {
+    "status": "refused",
+    "reason": "C(K) is implemented on closed bounded intervals, and Torus([0, 1), [0, 1)) is not one",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Continuous(D)"
+   },
+   "Sobolev": {
+    "status": "ok",
+    "reason": null,
+    "definition": "periodic",
+    "realisation": "tensor",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Sobolev(D, 2, length_scale=0.2)"
+   },
+   "IntrH1": {
+    "status": "ok",
+    "reason": null,
+    "definition": "periodic",
+    "realisation": "tensor",
+    "functional": "ray integral",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "unbounded"
+     },
+     {
+      "functional": "ray integral",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.SobolevForm(D, 1, length_scale=0.2).space()"
+   },
+   "IntrH2": {
+    "status": "ok",
+    "reason": null,
+    "definition": "periodic",
+    "realisation": "tensor",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.SobolevForm(D, 2, length_scale=0.2).space()"
+   },
+   "SpecN": {
+    "status": "n/a",
+    "reason": "a closed manifold has no boundary: there is no boundary condition to impose (its spectral space is the Sobolev column)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": null
+   },
+   "SpecD": {
+    "status": "n/a",
+    "reason": "a closed manifold has no boundary: there is no boundary condition to impose (its spectral space is the Sobolev column)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": null
+   },
+   "SpecMixed": {
+    "status": "n/a",
+    "reason": "a closed manifold has no boundary: there is no boundary condition to impose (its spectral space is the Sobolev column)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": null
+   },
+   "SpecRobin": {
+    "status": "n/a",
+    "reason": "a closed manifold has no boundary: there is no boundary condition to impose (its spectral space is the Sobolev column)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": null
+   },
+   "ComplexL2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": null,
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Complexified(pg.L2(D))"
+   }
+  },
+  "Box": {
+   "L2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "local",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.L2(D)"
+   },
+   "Lp": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "local",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Lp(D, 3)"
+   },
+   "C": {
+    "status": "refused",
+    "reason": "C(K) is implemented on closed bounded intervals, and [0, 1] × [0, 1] × [0, 1] is not one",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Continuous(D)"
+   },
+   "Sobolev": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "local",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Sobolev(D, 2, length_scale=0.2)"
+   },
+   "IntrH1": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "local",
+    "functional": "sphere surface integral",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "unbounded"
+     },
+     {
+      "functional": "sphere surface integral",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.SobolevForm(D, 1, length_scale=0.2).space()"
+   },
+   "IntrH2": {
+    "status": "refused",
+    "reason": "intrinsic a_2: only the operator 1 - l^2 Delta of an order-1 form is realised by images",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.SobolevForm(D, 2, length_scale=0.2).space()"
+   },
+   "SpecN": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "local",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2).operator(), 2)"
+   },
+   "SpecD": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "local",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=\"all\").operator(), 2)"
+   },
+   "SpecMixed": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "local",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=('x-',)).operator(), 2)"
+   },
+   "SpecRobin": {
+    "status": "refused",
+    "reason": "spectral, A = 1 - l²Δ of a_1 (Robin 1 at x-; Robin 1 at x+; Robin 1 at y-; Robin 1 at y+; Robin 1 at z-; Robin 1 at z+): images need Neumann or Dirichlet conditions; Robin parts are realised only on intervals with integer orders (finite rank)",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, robin=1.0).operator(), 2)"
+   },
+   "ComplexL2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": null,
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Complexified(pg.L2(D))"
+   }
+  },
+  "Cylinder": {
+   "L2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Cylinder(1.0, z=(0.0, 1.0))",
+    "space_code": "pg.L2(D)"
+   },
+   "Lp": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Cylinder(1.0, z=(0.0, 1.0))",
+    "space_code": "pg.Lp(D, 3)"
+   },
+   "C": {
+    "status": "refused",
+    "reason": "C(K) is implemented on closed bounded intervals, and Cylinder(radius=1, z=[0, 1], centre=(0, 0)) is not one",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Cylinder(1.0, z=(0.0, 1.0))",
+    "space_code": "pg.Continuous(D)"
+   },
+   "Sobolev": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "tensor",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Cylinder(1.0, z=(0.0, 1.0))",
+    "space_code": "pg.Sobolev(D, 2, length_scale=0.2)"
+   },
+   "IntrH1": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (natural (Neumann) at boundary) on Cylinder(radius=1, z=[0, 1], centre=(0, 0)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Cylinder(1.0, z=(0.0, 1.0))",
+    "space_code": "pg.SobolevForm(D, 1, length_scale=0.2).space()"
+   },
+   "IntrH2": {
+    "status": "refused",
+    "reason": "intrinsic a_2 on Cylinder(radius=1, z=[0, 1], centre=(0, 0)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Cylinder(1.0, z=(0.0, 1.0))",
+    "space_code": "pg.SobolevForm(D, 2, length_scale=0.2).space()"
+   },
+   "SpecN": {
+    "status": "refused",
+    "reason": "spectral, A = 1 - l²Δ of a_1 (natural (Neumann) at boundary) on Cylinder(radius=1, z=[0, 1], centre=(0, 0)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Cylinder(1.0, z=(0.0, 1.0))",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2).operator(), 2)"
+   },
+   "SpecD": {
+    "status": "refused",
+    "reason": "spectral, A = 1 - l²Δ of a_1 (Dirichlet at boundary) on Cylinder(radius=1, z=[0, 1], centre=(0, 0)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Cylinder(1.0, z=(0.0, 1.0))",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=\"all\").operator(), 2)"
+   },
+   "SpecMixed": {
+    "status": "n/a",
+    "reason": "a mixed condition needs two boundary parts; this domain has 1 (boundary)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Cylinder(1.0, z=(0.0, 1.0))",
+    "space_code": null
+   },
+   "SpecRobin": {
+    "status": "refused",
+    "reason": "spectral, A = 1 - l²Δ of a_1 (Robin 1 at boundary) on Cylinder(radius=1, z=[0, 1], centre=(0, 0)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Cylinder(1.0, z=(0.0, 1.0))",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, robin=1.0).operator(), 2)"
+   },
+   "ComplexL2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": null,
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Cylinder(1.0, z=(0.0, 1.0))",
+    "space_code": "pg.Complexified(pg.L2(D))"
+   }
+  },
+  "Ball": {
+   "L2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Ball(1.0)",
+    "space_code": "pg.L2(D)"
+   },
+   "Lp": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Ball(1.0)",
+    "space_code": "pg.Lp(D, 3)"
+   },
+   "C": {
+    "status": "refused",
+    "reason": "C(K) is implemented on closed bounded intervals, and Ball(radius=1, centre=(0, 0, 0)) is not one",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Ball(1.0)",
+    "space_code": "pg.Continuous(D)"
+   },
+   "Sobolev": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "tensor",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Ball(1.0)",
+    "space_code": "pg.Sobolev(D, 2, length_scale=0.2)"
+   },
+   "IntrH1": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (natural (Neumann) at boundary) on Ball(radius=1, centre=(0, 0, 0)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Ball(1.0)",
+    "space_code": "pg.SobolevForm(D, 1, length_scale=0.2).space()"
+   },
+   "IntrH2": {
+    "status": "refused",
+    "reason": "intrinsic a_2 on Ball(radius=1, centre=(0, 0, 0)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Ball(1.0)",
+    "space_code": "pg.SobolevForm(D, 2, length_scale=0.2).space()"
+   },
+   "SpecN": {
+    "status": "refused",
+    "reason": "spectral, A = 1 - l²Δ of a_1 (natural (Neumann) at boundary) on Ball(radius=1, centre=(0, 0, 0)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Ball(1.0)",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2).operator(), 2)"
+   },
+   "SpecD": {
+    "status": "refused",
+    "reason": "spectral, A = 1 - l²Δ of a_1 (Dirichlet at boundary) on Ball(radius=1, centre=(0, 0, 0)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Ball(1.0)",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=\"all\").operator(), 2)"
+   },
+   "SpecMixed": {
+    "status": "n/a",
+    "reason": "a mixed condition needs two boundary parts; this domain has 1 (boundary)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Ball(1.0)",
+    "space_code": null
+   },
+   "SpecRobin": {
+    "status": "refused",
+    "reason": "spectral, A = 1 - l²Δ of a_1 (Robin 1 at boundary) on Ball(radius=1, centre=(0, 0, 0)) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Ball(1.0)",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, robin=1.0).operator(), 2)"
+   },
+   "ComplexL2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": null,
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Ball(1.0)",
+    "space_code": "pg.Complexified(pg.L2(D))"
+   }
+  },
+  "Shell": {
+   "L2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Shell(0.5, 1.0)",
+    "space_code": "pg.L2(D)"
+   },
+   "Lp": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Shell(0.5, 1.0)",
+    "space_code": "pg.Lp(D, 3)"
+   },
+   "C": {
+    "status": "refused",
+    "reason": "C(K) is implemented on closed bounded intervals, and Shell(0.5, 1) is not one",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Shell(0.5, 1.0)",
+    "space_code": "pg.Continuous(D)"
+   },
+   "Sobolev": {
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "tensor",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Shell(0.5, 1.0)",
+    "space_code": "pg.Sobolev(D, 2, length_scale=0.2)"
+   },
+   "IntrH1": {
+    "status": "refused",
+    "reason": "intrinsic a_1 (natural (Neumann) at inner, outer) on Shell(0.5, 1) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Shell(0.5, 1.0)",
+    "space_code": "pg.SobolevForm(D, 1, length_scale=0.2).space()"
+   },
+   "IntrH2": {
+    "status": "refused",
+    "reason": "intrinsic a_2 on Shell(0.5, 1) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Shell(0.5, 1.0)",
+    "space_code": "pg.SobolevForm(D, 2, length_scale=0.2).space()"
+   },
+   "SpecN": {
+    "status": "refused",
+    "reason": "spectral, A = 1 - l²Δ of a_1 (natural (Neumann) at inner, outer) on Shell(0.5, 1) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Shell(0.5, 1.0)",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2).operator(), 2)"
+   },
+   "SpecD": {
+    "status": "refused",
+    "reason": "spectral, A = 1 - l²Δ of a_1 (Dirichlet at inner, outer) on Shell(0.5, 1) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Shell(0.5, 1.0)",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=\"all\").operator(), 2)"
+   },
+   "SpecMixed": {
+    "status": "refused",
+    "reason": "spectral, A = 1 - l²Δ of a_1 (Dirichlet at inner; natural (Neumann) at outer) on Shell(0.5, 1) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Shell(0.5, 1.0)",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=('inner',)).operator(), 2)"
+   },
+   "SpecRobin": {
+    "status": "refused",
+    "reason": "spectral, A = 1 - l²Δ of a_1 (Robin 1 at inner; Robin 1 at outer) on Shell(0.5, 1) has no realisation",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Shell(0.5, 1.0)",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, robin=1.0).operator(), 2)"
+   },
+   "ComplexL2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": null,
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Shell(0.5, 1.0)",
+    "space_code": "pg.Complexified(pg.L2(D))"
+   }
+  },
+  "Torus3": {
+   "L2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.L2(D)"
+   },
+   "Lp": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": "tensor",
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Lp(D, 3)"
+   },
+   "C": {
+    "status": "refused",
+    "reason": "C(K) is implemented on closed bounded intervals, and Torus([0, 1), [0, 1), [0, 1)) is not one",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Continuous(D)"
+   },
+   "Sobolev": {
+    "status": "ok",
+    "reason": null,
+    "definition": "periodic",
+    "realisation": "tensor",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Sobolev(D, 2, length_scale=0.2)"
+   },
+   "IntrH1": {
+    "status": "ok",
+    "reason": null,
+    "definition": "periodic",
+    "realisation": "tensor",
+    "functional": "sphere surface integral",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "unbounded"
+     },
+     {
+      "functional": "sphere surface integral",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.SobolevForm(D, 1, length_scale=0.2).space()"
+   },
+   "IntrH2": {
+    "status": "ok",
+    "reason": null,
+    "definition": "periodic",
+    "realisation": "tensor",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.SobolevForm(D, 2, length_scale=0.2).space()"
+   },
+   "SpecN": {
+    "status": "n/a",
+    "reason": "a closed manifold has no boundary: there is no boundary condition to impose (its spectral space is the Sobolev column)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": null
+   },
+   "SpecD": {
+    "status": "n/a",
+    "reason": "a closed manifold has no boundary: there is no boundary condition to impose (its spectral space is the Sobolev column)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": null
+   },
+   "SpecMixed": {
+    "status": "n/a",
+    "reason": "a closed manifold has no boundary: there is no boundary condition to impose (its spectral space is the Sobolev column)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": null
+   },
+   "SpecRobin": {
+    "status": "n/a",
+    "reason": "a closed manifold has no boundary: there is no boundary condition to impose (its spectral space is the Sobolev column)",
+    "definition": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": null
+   },
+   "ComplexL2": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": null,
+    "functional": "constant",
+    "tried": [
+     {
+      "functional": "constant",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Torus(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Complexified(pg.L2(D))"
+   }
+  },
+  "Layered": {
+   "L2": {
+    "status": "constructed",
+    "reason": null,
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "unbounded"
+     }
+    ],
+    "domain_code": "pg.LayeredBall([0.5, 1.0])",
+    "space_code": "pg.PiecewiseSpace.lebesgue(D)"
+   },
+   "Lp": {
+    "status": "refused",
+    "reason": "expected a measure, an interval or a domain, got LayeredBall(layer 0 0-0.5, layer 1 0.5-1)",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.LayeredBall([0.5, 1.0])",
+    "space_code": "pg.Lp(D, 3)"
+   },
+   "C": {
+    "status": "refused",
+    "reason": "C(K) is implemented on closed bounded intervals, and LayeredBall(layer 0 0-0.5, layer 1 0.5-1) is not one",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.LayeredBall([0.5, 1.0])",
+    "space_code": "pg.Continuous(D)"
+   },
+   "Sobolev": {
+    "status": "ok",
+    "reason": null,
+    "definition": null,
+    "realisation": null,
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.LayeredBall([0.5, 1.0])",
+    "space_code": "pg.PiecewiseSpace.sobolev(D, 2, length_scale=0.2)"
+   },
+   "IntrH1": {
+    "status": "refused",
+    "reason": "expected a measure, an interval or a domain, got LayeredBall(layer 0 0-0.5, layer 1 0.5-1)",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.LayeredBall([0.5, 1.0])",
+    "space_code": "pg.SobolevForm(D, 1, length_scale=0.2).space()"
+   },
+   "IntrH2": {
+    "status": "refused",
+    "reason": "expected a measure, an interval or a domain, got LayeredBall(layer 0 0-0.5, layer 1 0.5-1)",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.LayeredBall([0.5, 1.0])",
+    "space_code": "pg.SobolevForm(D, 2, length_scale=0.2).space()"
+   },
+   "SpecN": {
+    "status": "refused",
+    "reason": "expected a measure, an interval or a domain, got LayeredBall(layer 0 0-0.5, layer 1 0.5-1)",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.LayeredBall([0.5, 1.0])",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2).operator(), 2)"
+   },
+   "SpecD": {
+    "status": "refused",
+    "reason": "expected a measure, an interval or a domain, got LayeredBall(layer 0 0-0.5, layer 1 0.5-1)",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.LayeredBall([0.5, 1.0])",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=\"all\").operator(), 2)"
+   },
+   "SpecMixed": {
+    "status": "refused",
+    "reason": "expected a measure, an interval or a domain, got LayeredBall(layer 0 0-0.5, layer 1 0.5-1)",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.LayeredBall([0.5, 1.0])",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=('boundary',)).operator(), 2)"
+   },
+   "SpecRobin": {
+    "status": "refused",
+    "reason": "expected a measure, an interval or a domain, got LayeredBall(layer 0 0-0.5, layer 1 0.5-1)",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.LayeredBall([0.5, 1.0])",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, robin=1.0).operator(), 2)"
+   },
+   "ComplexL2": {
+    "status": "refused",
+    "reason": "expected a measure, an interval or a domain, got LayeredBall(layer 0 0-0.5, layer 1 0.5-1)",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.LayeredBall([0.5, 1.0])",
+    "space_code": "pg.Complexified(pg.L2(D))"
+   }
+  }
+ },
+ "extras": {
+  "fractional": [
+   {
+    "domain": "Interval",
+    "space": "SpecN",
+    "order": 0.5,
+    "status": "constructed",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "legendre",
+    "functional": null,
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "unbounded"
+     }
+    ],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2).operator(), 0.5)"
+   },
+   {
+    "domain": "Interval",
+    "space": "SpecN",
+    "order": 1.5,
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "legendre",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2).operator(), 1.5)"
+   },
+   {
+    "domain": "Interval",
+    "space": "SpecN",
+    "order": 2.5,
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "legendre",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2).operator(), 2.5)"
+   },
+   {
+    "domain": "Interval",
+    "space": "SpecD",
+    "order": 1.5,
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "legendre",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=\"all\").operator(), 1.5)"
+   },
+   {
+    "domain": "Interval",
+    "space": "SpecD",
+    "order": 2.5,
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "legendre",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=\"all\").operator(), 2.5)"
+   },
+   {
+    "domain": "Interval",
+    "space": "SpecMixed",
+    "order": 1.5,
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "legendre",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=('left',)).operator(), 1.5)"
+   },
+   {
+    "domain": "Interval",
+    "space": "SpecMixed",
+    "order": 2.5,
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "legendre",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=('left',)).operator(), 2.5)"
+   },
+   {
+    "domain": "Interval",
+    "space": "SpecRobin",
+    "order": 1,
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "legendre",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, robin=1.0).operator(), 1)"
+   },
+   {
+    "domain": "Interval",
+    "space": "SpecRobin",
+    "order": 2,
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "legendre",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, robin=1.0).operator(), 2)"
+   },
+   {
+    "domain": "Interval",
+    "space": "SpecRobin",
+    "order": 1.5,
+    "status": "refused",
+    "reason": "spectral, A = 1 - l²Δ of a_1 (Robin 1 at left; Robin 1 at right): images need Neumann or Dirichlet conditions; Robin parts are realised only on intervals with integer orders (finite rank) (fractional powers are realised by images; Robin eigenfunctions are not explicit)",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, robin=1.0).operator(), 1.5)"
+   },
+   {
+    "domain": "Interval",
+    "space": "SpecRobin",
+    "order": 2.5,
+    "status": "refused",
+    "reason": "spectral, A = 1 - l²Δ of a_1 (Robin 1 at left; Robin 1 at right): images need Neumann or Dirichlet conditions; Robin parts are realised only on intervals with integer orders (finite rank) (fractional powers are realised by images; Robin eigenfunctions are not explicit)",
+    "definition": null,
+    "realisation": null,
+    "functional": null,
+    "tried": [],
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, robin=1.0).operator(), 2.5)"
+   },
+   {
+    "domain": "Box",
+    "space": "SpecN",
+    "order": 2.5,
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "local",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2).operator(), 2.5)"
+   },
+   {
+    "domain": "Box",
+    "space": "SpecD",
+    "order": 2.5,
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "local",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=\"all\").operator(), 2.5)"
+   },
+   {
+    "domain": "Box",
+    "space": "SpecMixed",
+    "order": 2.5,
+    "status": "ok",
+    "reason": null,
+    "definition": "restriction",
+    "realisation": "local",
+    "functional": "point evaluation",
+    "tried": [
+     {
+      "functional": "point evaluation",
+      "result": "bounded"
+     }
+    ],
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2, dirichlet=('x-',)).operator(), 2.5)"
+   }
+  ],
+  "solves": [
+   {
+    "name": "Interval, Spec N",
+    "domain": "Interval",
+    "space": "SpecN",
+    "order": 2,
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2).operator(), 2)",
+    "code": "G = pg.Functionals(H.riesz([pg.Interval(0.1, 0.3), pg.Interval(0.4, 0.6), pg.Interval(0.7, 0.9)]), into=pg.Euclidean(3))\nd = G.codomain([1.0, 0.5, -0.5])\nm = G.adjoint((G @ G.adjoint + 1e-6 * pg.Identity(G.codomain)).inv(d))\nresidual = (G(m) - d).norm() / d.norm()",
+    "tolerance": 0.001,
+    "ok": true,
+    "reason": null
+   },
+   {
+    "name": "Interval, Sobolev (restriction)",
+    "domain": "Interval",
+    "space": "Sobolev",
+    "order": 2,
+    "domain_code": "pg.Interval(\"[0, 1]\")",
+    "space_code": "pg.Sobolev(D, 2, length_scale=0.2)",
+    "code": "G = pg.Functionals(H.riesz([pg.Interval(0.1, 0.3), pg.Interval(0.4, 0.6), pg.Interval(0.7, 0.9)]), into=pg.Euclidean(3))\nd = G.codomain([1.0, 0.5, -0.5])\nm = G.adjoint((G @ G.adjoint + 1e-6 * pg.Identity(G.codomain)).inv(d))\nresidual = (G(m) - d).norm() / d.norm()",
+    "tolerance": 0.001,
+    "ok": true,
+    "reason": null
+   },
+   {
+    "name": "Rectangle, Spec N",
+    "domain": "Rectangle",
+    "space": "SpecN",
+    "order": 2,
+    "domain_code": "pg.Box(\"[0, 1]\", \"[0, 1]\")",
+    "space_code": "pg.Sobolev(pg.SobolevForm(D, 1, length_scale=0.2).operator(), 2)",
+    "code": "G = pg.Functionals(H.riesz([pg.Segment((0.1, 0.1), (0.9, 0.2)), pg.Segment((0.2, 0.9), (0.8, 0.1)), pg.Segment((0.1, 0.5), (0.9, 0.6))]), into=pg.Euclidean(3))\nd = G.codomain([1.0, 0.5, -0.5])\nm = G.adjoint((G @ G.adjoint + 1e-6 * pg.Identity(G.codomain)).inv(d))\nresidual = (G(m) - d).norm() / d.norm()",
+    "tolerance": 0.001,
+    "ok": true,
+    "reason": null
+   },
+   {
+    "name": "Disk, Sobolev (restriction)",
+    "domain": "Disk",
+    "space": "Sobolev",
+    "order": 2,
+    "domain_code": "pg.Disk(1.0)",
+    "space_code": "pg.Sobolev(D, 2, length_scale=0.2)",
+    "code": "G = pg.Functionals(H.riesz([pg.Segment((-0.8, 0.1), (0.8, 0.2)), pg.Segment((-0.3, -0.8), (0.4, 0.7)), pg.Segment((-0.5, 0.5), (0.6, 0.6))]), into=pg.Euclidean(3))\nd = G.codomain([1.0, 0.5, -0.5])\nm = G.adjoint((G @ G.adjoint + 1e-6 * pg.Identity(G.codomain)).inv(d))\nresidual = (G(m) - d).norm() / d.norm()",
+    "tolerance": 0.001,
+    "ok": true,
+    "reason": null
+   }
+  ],
+  "formula_norms": [
+   {
+    "domain": "Interval",
+    "space": "Sobolev",
+    "space_code": "pg.Sobolev(D, 1, length_scale=0.2)",
+    "formula": "lambda x: 1.0 + x ** 2",
+    "status": "ok",
+    "reason": null
+   },
+   {
+    "domain": "Rectangle",
+    "space": "Sobolev",
+    "space_code": "pg.Sobolev(D, 2, length_scale=0.2)",
+    "formula": "lambda x, y: 1.0 + x * y",
+    "status": "refused",
+    "reason": "the inner product of two functions given by formulas is not computed in this space: in a restriction space it is the minimal-extension (quotient) norm and needs an extension problem; in a fractional spectral space a fractional power of the operator. Exact: inner products with Riesz representers (int f dmu), and everything in their span. Compare functions in L2 with pg.Inclusion(H, L2); the classic H^1 (FEM) inner product int uv + l^2 grad u.grad v is the form space's, pg.SobolevForm(X, 1, length_scale=l).space() (intervals, boxes).",
+    "error": "NormUnavailable"
+   },
+   {
+    "domain": "Disk",
+    "space": "Sobolev",
+    "space_code": "pg.Sobolev(D, 2, length_scale=0.2)",
+    "formula": "lambda x, y: 1.0 + x * y",
+    "status": "refused",
+    "reason": "the inner product of two functions given by formulas is not computed in this space: in a restriction space it is the minimal-extension (quotient) norm and needs an extension problem; in a fractional spectral space a fractional power of the operator. Exact: inner products with Riesz representers (int f dmu), and everything in their span. Compare functions in L2 with pg.Inclusion(H, L2); the classic H^1 (FEM) inner product int uv + l^2 grad u.grad v is the form space's, pg.SobolevForm(X, 1, length_scale=l).space() (intervals, boxes).",
+    "error": "NormUnavailable"
+   },
+   {
+    "domain": "Box",
+    "space": "Sobolev",
+    "space_code": "pg.Sobolev(D, 2, length_scale=0.2)",
+    "formula": "lambda x, y, z: 1.0 + x * y * z",
+    "status": "refused",
+    "reason": "the inner product of two functions given by formulas is not computed in this space: in a restriction space it is the minimal-extension (quotient) norm and needs an extension problem; in a fractional spectral space a fractional power of the operator. Exact: inner products with Riesz representers (int f dmu), and everything in their span. Compare functions in L2 with pg.Inclusion(H, L2); the classic H^1 (FEM) inner product int uv + l^2 grad u.grad v is the form space's, pg.SobolevForm(X, 1, length_scale=l).space() (intervals, boxes).",
+    "error": "NormUnavailable"
+   }
+  ]
+ }
+}

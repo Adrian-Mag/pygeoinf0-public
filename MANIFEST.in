@@ -1,0 +1,7 @@
+include README.md
+include FUNCTIONS.md
+include API.md
+include LICENSE
+include pygeoinf0/spaces_snapshot.json
+recursive-include tests *.py
+recursive-include examples *.py *.ipynb

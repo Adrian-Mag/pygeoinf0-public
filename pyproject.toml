@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pygeoinf0"
+version = "0.3.0"
+description = "Continuum-first inference: function spaces, measures and operators with explicit numerical realisations"
+readme = "README.md"
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+authors = [{ name = "Marin Adrian Mag" }]
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.24", "scipy>=1.10"]
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.7"]
+interactive = ["plotly>=6", "ipywidgets>=8", "anywidget>=0.9"]
+parallel = ["threadpoolctl>=3"]
+fast = ["finufft>=2.2"]
+dev = ["pytest>=8", "build>=1", "ruff>=0.5", "matplotlib>=3.7", "hypothesis>=6", "mpmath>=1.3"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pygeoinf0*"]
+
+[tool.setuptools.package-data]
+pygeoinf0 = ["spaces_snapshot.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
